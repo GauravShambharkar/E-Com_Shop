@@ -1,6 +1,11 @@
 // import React from "react";
 
+import { useContext } from "react";
+import { Context } from "./Context/Context";
+
 const Products = () => {
+  const [data] = useContext(Context);
+
   return (
     <>
       <div className="border border-[#b5b5b5] rounded-3xl w-full h-screen p-4 overflow-hidden">
@@ -13,18 +18,21 @@ const Products = () => {
         {/* Responsive grid layout */}
         <div className="productsContainer grid gap-6 mt-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {/* card */}
-          <div className="bg-gray-50 p-4 border border-[#c5c5c5] rounded-xl shadow hover:shadow-lg transition">
+          {data.map( (elem , id)=> {
+
+          return <div key={id} className="bg-gray-50 p-4 border border-[#c5c5c5] rounded-xl shadow hover:shadow-lg transition">
             <img
-              src="https://images.unsplash.com/photo-1596162954151-cdcb4c0f70a8?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fGNoYWlyfGVufDB8fDB8fHww"
-              alt=""
+              src={elem.image}
               className="w-full h-48 object-cover rounded-md mb-4"
             />
-            <h3 className="text-xl font-bold text-gray-700">Product item</h3>
+            <h3 className="text-xl font-bold text-gray-700">{elem.item}</h3>
             <p className="text-gray-500 mb-2">
               Short product description goes here.
             </p>
-            <span className="text-lg font-semibold text-gray-900">$29.99</span>
+            <span className="text-lg font-semibold text-gray-900">{elem.price}</span>
           </div>
+            
+          })}
         </div>
       </div>
     </>

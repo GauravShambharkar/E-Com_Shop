@@ -30,9 +30,9 @@ const Home = () => {
             Featured Products
           </h2>
           <div className="grid gap-8 md:grid-cols-3 sm:grid-cols-2">
-            {data.map((item) => (
+            {data.map((item,id) => (
               <div
-                key={item}
+                key={id}
                 className="bg-gray-50 p-4 rounded-xl shadow hover:shadow-lg transition"
               >
                 <img
@@ -40,7 +40,7 @@ const Home = () => {
                   className="w-full h-48 object-cover rounded-md mb-4"
                 />
                 <h3 className="text-xl font-bold  text-gray-700">
-                  {item.product}
+                  {item.item}
                 </h3>
                 <p className="text-gray-500 mb-2">
                   Short product description goes here.
