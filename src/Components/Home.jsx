@@ -33,7 +33,7 @@ const Home = () => {
             {data.map((item,id) => (
               <div
                 key={id}
-                className="bg-gray-50 p-4 rounded-xl shadow hover:shadow-lg transition"
+                className="bg-gray-50 p-4 rounded-xl shadow shadow-black hover:shadow-lg hover:scale-98 transition"
               >
                 <img
                   src={item.image}

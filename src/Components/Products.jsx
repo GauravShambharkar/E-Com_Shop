@@ -1,10 +1,27 @@
 // import React from "react";
 
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Context } from "./Context/Context";
+import axios from "axios";
 
 const Products = () => {
-  const [data] = useContext(Context);
+  const [storedata, setstoreData] = useContext(Context);
+
+  function fetchingStore() {
+    axios.get("https://fakestoreapi.com/products").then((res) => {
+      console.log(res.data);
+
+      setstoreData([...storedata, ...res.data]);
+    });
+  }
+
+  useEffect(() => {
+    console.log(" Product page mountedd ");
+    fetchingStore();
+    return () => {
+      console.log(" Product page UN-mountedd ");
+    };
+  }, []);
 
   return (
     <>
@@ -18,25 +35,33 @@ const Products = () => {
         {/* Responsive grid layout */}
         <div className="productsContainer grid gap-6 mt-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {/* card */}
-          {data.map( (elem , id)=> {
+          { storedata.length>0? storedata.map((elem, id) => {
+            const { image, item, price } = elem;
 
-            const { image , item , price } = elem;
-
-          return <div key={id} className="bg-gray-50 p-4 border border-[#c5c5c5] rounded-xl shadow hover:shadow-lg transition">
-            <img
-              src={image}
-              className="w-full h-48 object-cover rounded-md mb-4"
-            />
-            <h3 className="text-xl font-bold text-gray-700">{item}</h3>
-            <p className="text-gray-500 mb-2">
-              Short product description goes here.
-            </p>
-            <div className="flex justify-between">
-            <span className="text-lg font-semibold text-gray-900">${price}</span>
-            <span className="px-4 py-1 cursor-pointer text-white text-center bg-black rounded-full">Buy</span>
-            </div>
-          </div>
-          })}
+            return (
+              <div
+                key={id}
+                className="bg-gray-50 p-4 border border-[#c5c5c5] rounded-xl shadow hover:shadow-lg transition shadow-black/70  hover:scale-98"
+              >
+                <img
+                  src={image}
+                  className="w-full h-48 object-cover rounded-md mb-4"
+                />
+                <h3 className="text-xl font-bold text-gray-700">{item}</h3>
+                <p className="text-gray-500 mb-2">
+                  Short product description goes here.
+                </p>
+                <div className="flex justify-between">
+                  <span className="text-lg font-semibold text-gray-900">
+                    ${price}
+                  </span>
+                  <span className="px-4 py-1 cursor-pointer text-white text-center bg-black rounded-full">
+                    Buy
+                  </span>
+                </div>
+              </div>
+            );
+          }) : "Wait a bit" }
         </div>
       </div>
     </>
