@@ -8,7 +8,7 @@ const Nav = () => {
         <div className=" px-3 py-2 rounded-full text-[#000000] bg-[#ff7429]">
           E-COM-SHOP
         </div>
-        <div className="flex items-center  px-15 gap-5 transition-all ease-in">
+        <div className="flex items-center  gap-5 transition-all ease-in">
           {/* <Link to="/">Home</Link> */}
           {/* <Link to="/products">Products</Link> */}
           {/* <Link to="/shop">Shop</Link> */}
