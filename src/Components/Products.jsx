@@ -68,7 +68,31 @@ const Products = () => {
                   </div>
                 );
               })
-            : "Wait a bit"}
+            : [1,2,3,4].map((elem, id) => {
+
+              return (
+                <div
+                  key={id}
+                  className="bg-gray-50 p-4 border w-60 border-[#c5c5c5] rounded-xl shadow hover:shadow-lg transition shadow-black/70  hover:scale-98 flex flex-col justify-between ">
+                  <div className="topContent">
+                    <img
+                      src={''}
+                      className="w-50 mx-auto  h-38 object-cover rounded-md mb-4"
+                    />
+                    <h3 className="text-md font-bold text-gray-700 ">
+                      
+                    </h3>
+                    <p className="text-gray-500 mb-2"></p>
+                  </div>
+                  <div className="bottomContent ">
+                    <div className="flex my-auto justify-between items-end">
+                      <span className="text-sm font-semibold text-gray-900"></span>
+                      <span className="px-3 text-sm py-1 cursor-pointer text-white text-center bg-black rounded-full"></span>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
         </div>
       </div>
     </>

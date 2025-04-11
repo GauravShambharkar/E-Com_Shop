@@ -2,8 +2,7 @@ import React, { useContext } from "react";
 import { Context } from "./Context/Context";
 
 const Home = () => {
-
-  const [data] = useContext(Context)
+  const [data] = useContext(Context);
 
   return (
     <>
@@ -30,7 +29,7 @@ const Home = () => {
             Featured Products
           </h2>
           <div className="grid gap-8 md:grid-cols-3 sm:grid-cols-2">
-            {data.map((item,id) => (
+            { [1,2,3].map((item, id) => (
               <div
                 key={id}
                 className="bg-gray-50 p-4 rounded-xl shadow shadow-black hover:shadow-lg hover:scale-98 transition"
@@ -46,10 +45,12 @@ const Home = () => {
                   Short product description goes here.
                 </p>
                 <div className="flex items-center justify-between">
-                <span className="text-lg font-semibold text-gray-900">
-                  ${item.price}
-                </span>
-                <span className="px-4 py-1 cursor-pointer text-white text-center bg-black rounded-full">View</span>
+                  <span className="text-lg font-semibold text-gray-900">
+                    ${item.price}
+                  </span>
+                  <span className="px-4 py-1 cursor-pointer text-white text-center bg-black rounded-full">
+                    View
+                  </span>
                 </div>
               </div>
             ))}
