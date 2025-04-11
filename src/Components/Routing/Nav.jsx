@@ -33,14 +33,14 @@ const Nav = () => {
             Products
           </NavLink>
           <NavLink
-            to="/shop"
+            to="/Cart"
             className={({ isActive }) => {
               return isActive
                 ? "bg-black text-white px-3 py-2 rounded-full duration-400 "
                 : " text-black  px-3 py-2";
             }}
           >
-            shop
+            Cart
           </NavLink>
         </div>
       </div>
