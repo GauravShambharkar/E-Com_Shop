@@ -26,7 +26,7 @@ const Home = () => {
             {[1, 2, 3].map((item) => (
               <div key={item} className="bg-gray-50 p-4 rounded-xl shadow hover:shadow-lg transition">
                 <img
-                  src={`https://via.placeholder.com/300x200?text=Product+${item}`}
+                  src={`https://images.unsplash.com/photo-1596162954151-cdcb4c0f70a8?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fGNoYWlyfGVufDB8fDB8fHww+${item}`}
                   alt={`Product ${item}`}
                   className="w-full h-48 object-cover rounded-md mb-4"
                 />

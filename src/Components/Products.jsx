@@ -34,12 +34,11 @@ const Products = () => {
 
           <div className="bg-gray-50 p-4 border border-[#c5c5c5] rounded-xl shadow hover:shadow-lg transition">
             <img
-              src={`https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGNoYWlyfGVufDB8fDB8fHww`}
-              alt=''
-              className="w-full h-48 object-cover rounded-md mb-4" />
-            <h3 className="text-xl font-medium text-gray-700">
-              Product item
-            </h3>
+              src={`https://images.unsplash.com/photo-1596162954151-cdcb4c0f70a8?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fGNoYWlyfGVufDB8fDB8fHww`}
+              alt=""
+              className="w-full h-48 object-cover rounded-md mb-4"
+            />
+            <h3 className="text-xl font-bold text-gray-700 ">Product item</h3>
             <p className="text-gray-500 mb-2">
               Short product description goes here.
             </p>
