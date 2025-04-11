@@ -33,35 +33,42 @@ const Products = () => {
         </div>
 
         {/* Responsive grid layout */}
-        <div className="productsContainer grid gap-6 mt-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="productsContainer grid gap-3 mt-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
           {/* card */}
-          { storedata.length>0? storedata.map((elem, id) => {
-            const { image, item, price } = elem;
+          {storedata.length > 0
+            ? storedata.map((elem, id) => {
+                const { image, title, price } = elem;
 
-            return (
-              <div
-                key={id}
-                className="bg-gray-50 p-4 border border-[#c5c5c5] rounded-xl shadow hover:shadow-lg transition shadow-black/70  hover:scale-98"
-              >
-                <img
-                  src={image}
-                  className="w-full h-48 object-cover rounded-md mb-4"
-                />
-                <h3 className="text-xl font-bold text-gray-700">{item}</h3>
-                <p className="text-gray-500 mb-2">
-                  Short product description goes here.
-                </p>
-                <div className="flex justify-between">
-                  <span className="text-lg font-semibold text-gray-900">
-                    ${price}
-                  </span>
-                  <span className="px-4 py-1 cursor-pointer text-white text-center bg-black rounded-full">
-                    Buy
-                  </span>
-                </div>
-              </div>
-            );
-          }) : "Wait a bit" }
+                return (
+                  <div
+                    key={id}
+                    className="bg-gray-50 p-4 border w-60 border-[#c5c5c5] rounded-xl shadow hover:shadow-lg transition shadow-black/70  hover:scale-98 flex flex-col justify-between ">
+                    <div className="topContent">
+                      <img
+                        src={image}
+                        className="w-50 mx-auto  h-38 object-cover rounded-md mb-4"
+                      />
+                      <h3 className="text-md font-bold text-gray-700 ">
+                        {title}
+                      </h3>
+                      <p className="text-gray-500 mb-2">
+                        Short product description goes here.
+                      </p>
+                    </div>
+                    <div className="bottomContent ">
+                      <div className="flex my-auto justify-between items-end">
+                        <span className="text-sm font-semibold text-gray-900">
+                          ${price}
+                        </span>
+                        <span className="px-3 text-sm py-1 cursor-pointer text-white text-center bg-black rounded-full">
+                          Buy
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })
+            : "Wait a bit"}
         </div>
       </div>
     </>
