@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Shop = () => {
+const Shop = (cart) => {
   return (
-    <div>Shop</div>
+    <div>[{cart}]</div>
   )
 }
 

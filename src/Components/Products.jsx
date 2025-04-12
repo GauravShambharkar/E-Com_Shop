@@ -1,12 +1,16 @@
 // import React from "react";
 
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Context } from "./Context/Context";
 import axios from "axios";
 import Buffer from "./Buffer";
+import ProductPreview from "./PodPreview";
+import Shop from "./Shop";
 
 const Products = () => {
   const [storedata, setstoreData] = useContext(Context);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [cart, setCart] = useState(null);
 
   function fetchingStore() {
     axios.get("https://fakestoreapi.com/products").then((res) => {
@@ -34,7 +38,7 @@ const Products = () => {
         </div>
 
         {/* Responsive grid layout */}
-        <div className="productsContainer grid gap-3 mt-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
+        <div className="productsContainer cursor-pointer grid gap-3 mt-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
           {/* card */}
           {storedata.length > 0
             ? storedata.map((elem, id) => {
@@ -43,7 +47,8 @@ const Products = () => {
                 return (
                   <div
                     key={id}
-                    className="bg-gray-50 p-4 border w-60 border-[#c5c5c5] rounded-xl shadow hover:shadow-lg transition shadow-black/70  hover:scale-98 flex flex-col justify-between ">
+                    className="bg-gray-50 p-4 border w-60 border-[#c5c5c5] rounded-xl shadow hover:shadow-lg transition shadow-black/70  hover:scale-98 flex flex-col justify-between "
+                  >
                     <div className="topContent">
                       <img
                         src={image}
@@ -61,7 +66,13 @@ const Products = () => {
                         <span className="text-sm font-semibold text-gray-900">
                           ${price}
                         </span>
-                        <span className="px-3 text-sm py-1 cursor-pointer text-white text-center bg-black rounded-full">
+                        <span
+                          onClick={() => {
+                            setSelectedProduct(elem);
+                            setCart(elem);
+                          }}
+                          className="px-3 text-sm py-1 cursor-pointer text-white text-center bg-black rounded-full"
+                        >
                           Buy
                         </span>
                       </div>
@@ -69,9 +80,18 @@ const Products = () => {
                   </div>
                 );
               })
-            : [<Buffer/>] }
+            : [<Buffer />]}
         </div>
       </div>
+      {
+        <>
+          <ProductPreview
+            selectedProduct={selectedProduct}
+            onClose={() => setSelectedProduct(null)}
+          />
+          <Shop cart={cart}/>
+        </>
+      }
     </>
   );
 };
