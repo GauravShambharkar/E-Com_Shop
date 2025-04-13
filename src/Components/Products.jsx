@@ -40,7 +40,7 @@ const Products = () => {
         <div className="w-full flex gap-4 justify-end p-2">
         {getUniqueCategories(storedata).map((category, index) => (
           <span key={index} className="text-sm cursor-pointer  px-2 py-1 bg-gray-200 rounded-full">
-            {category}
+            {category.charAt(0).toUpperCase()  + category.slice(1).toLowerCase()}
           </span>
         ))}
           {/* <button className="px-3 py-2 bg-black text-white cursor-pointer text-xs w-fit rounded-full">
