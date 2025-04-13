@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-gray-100 py-16 px-4 text-center rounded-3xl">
+      <section className="bg-gray-100 mt-30 py-16 px-4 text-center rounded-3xl">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
             Discover Handpicked Products Just for You

@@ -15,8 +15,11 @@ const Products = () => {
       console.log(res.data);
 
       setstoreData([...storedata, ...res.data.products]);
-    });
-  }
+    }).catch(()=>{
+      alert('couldnt fetch data')
+    })
+    
+    ;}
 
   useEffect(() => {
     console.log(" Product page mountedd ");
@@ -28,7 +31,7 @@ const Products = () => {
 
   return (
     <>
-      <div className="border border-[#b5b5b5] rounded-3xl w-full p-4 overflow-hidden">
+      <div className="border mt-30 border-[#b5b5b5] rounded-3xl w-full p-4 overflow-hidden">
         <div className="w-full flex justify-end p-2">
           <button className="px-3 py-2 bg-black text-white cursor-pointer text-xs w-fit rounded-full">
             Filter
@@ -45,7 +48,7 @@ const Products = () => {
                 return (
                   <div
                     key={id}
-                    className="bg-[#ffffff] p-4 border w-58 border-[#ffffffc9] rounded-xl shadow hover:shadow-lg transition shadow-black/70  hover:scale-98 flex flex-col justify-between "
+                    className="bg-[#ffffff] p-4 border w-58 border-[#ffffffc9] rounded-xl shadow hover:shadow-lg transition shadow-black/70 flex flex-col justify-between "
                   >
                     <div className="topContent">
                       <img
@@ -67,7 +70,7 @@ const Products = () => {
                         </span>
                         {discount>0 ?(< span className={`text-sm font-semibold px-2 border rounded-full text-[#212121] ${discount>15? `bg-[#30e830] text-[#ffffff] border border-white` : discount}`}>
                           {discount}% OFF
-                        </span>) : discount}
+                        </span>) : ''}
                         <span
                           onClick={() => {
                             setSelectedProduct(elem);
