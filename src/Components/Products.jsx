@@ -45,28 +45,29 @@ const Products = () => {
                 return (
                   <div
                     key={id}
-                    className="bg-gray-50 p-4 border w-58 border-[#c5c5c5] rounded-xl shadow hover:shadow-lg transition shadow-black/70  hover:scale-98 flex flex-col justify-between "
+                    className="bg-[#ffffff] p-4 border w-58 border-[#ffffffc9] rounded-xl shadow hover:shadow-lg transition shadow-black/70  hover:scale-98 flex flex-col justify-between "
                   >
                     <div className="topContent">
                       <img
                         src={image}
+                        alt={title}
                         className="w-50 mx-auto h-35 object-contain rounded-md mb-4"
                       />
-                      <h3 className="text-md font-bold text-gray-700 ">
-                        {title}
-                      </h3>
+                      {title.length>20? (<h3 className="text-md font-bold text-gray-700 ">
+                        {title.slice(0, 60)}...
+                      </h3>) : title}
                       <p className="text-gray-500 mb-2">
                         Short product description goes here.
                       </p>
                     </div>
                     <div className="bottomContent ">
                       <div className="flex my-auto justify-between items-end">
-                        <span className="text-sm font-semibold text-gray-900">
+                        <span className="text-sm font-semibold text-[#494949]">
                           ${price}
                         </span>
-                        <span className="text-sm font-semibold text-gray-900">
+                        {discount>0 ?(< span className={`text-sm font-semibold px-2 border rounded-full text-[#212121] ${discount>15? `bg-[#30e830] text-[#ffffff] border border-white` : discount}`}>
                           {discount}% OFF
-                        </span>
+                        </span>) : discount}
                         <span
                           onClick={() => {
                             setSelectedProduct(elem);
