@@ -29,20 +29,30 @@ const Products = () => {
     };
   }, []);
 
+  const getUniqueCategories = (data) => [...new Set(data.map(item => item.category))];
+
+
+
+
   return (
     <>
       <div className="border mt-30 border-[#b5b5b5] rounded-3xl w-full p-4 overflow-hidden">
-        <div className="w-full flex justify-end p-2">
-          <button className="px-3 py-2 bg-black text-white cursor-pointer text-xs w-fit rounded-full">
-            Filter
-          </button>
+        <div className="w-full flex gap-4 justify-end p-2">
+        {getUniqueCategories(storedata).map((category, index) => (
+          <span key={index} className="text-sm cursor-pointer  px-2 py-1 bg-gray-200 rounded-full">
+            {category}
+          </span>
+        ))}
+          {/* <button className="px-3 py-2 bg-black text-white cursor-pointer text-xs w-fit rounded-full">
+           Filter 
+          </button> */}
         </div>
 
         {/* Responsive grid layout */}
         <div className="productsContainer cursor-pointer gap-5 mt-5 justify-center flex flex-wrap">
           {/* card */}
           {storedata.length > 0
-            ? storedata.map((elem, id) => {
+            ?  storedata.map((elem, id) => {
                 const { image, title, price ,discount } = elem;
 
                 return (
@@ -90,7 +100,7 @@ const Products = () => {
       {
         <ProductPreview
           selectedProduct={selectedProduct}
-          onClose={() => setSelectedProduct(null)}
+          onClose={() => setSelectedProduct(null) }
         />
       }
     </>

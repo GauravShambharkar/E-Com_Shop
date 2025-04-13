@@ -1,7 +1,6 @@
 import React from 'react'
-
-const ProductPreview = ({ selectedProduct, onClose }) => {
-  if (!selectedProduct) return null;
+const ProductPreview = ({ selectedProduct, onClose}) => {
+  if (!selectedProduct) return null
 
   const { image, title, description, price ,brand, color, discount} = selectedProduct;
 
