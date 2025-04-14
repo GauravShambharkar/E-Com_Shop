@@ -115,7 +115,7 @@ const Products = () => {
                   </div>
                 );
               })
-            : [<Buffer />]}
+            :  <Buffer />}
         </div>
       </div>
       {
