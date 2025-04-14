@@ -15,7 +15,7 @@ const Routing = () => {
         <Route path="/products" element={<Products />}>
           Products
         </Route>
-        <Route path="/Shop" element={<Shop />}>
+        <Route path="/cart" element={<Shop />}>
           Cart
         </Route>
         <Route path="/loginPage" element={<Login/>}>

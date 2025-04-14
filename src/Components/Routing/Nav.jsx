@@ -33,7 +33,7 @@ const Nav = () => {
             Products
           </NavLink>
           <NavLink
-            to="/Cart"
+            to="/cart"
             className={({ isActive }) => {
               return isActive
                 ? "bg-black text-white px-3 py-2 rounded-full duration-400 "

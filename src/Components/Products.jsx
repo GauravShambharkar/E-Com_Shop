@@ -9,6 +9,8 @@ import ProductPreview from "./PodPreview";
 const Products = () => {
   const [storedata, setstoreData] = useContext(Context);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
 
   function fetchingStore() {
     axios.get("https://fakestoreapi.in/api/products").then((res) => {
@@ -29,7 +31,17 @@ const Products = () => {
     };
   }, []);
 
-  const getUniqueCategories = (data) => [...new Set(data.map(item => item.category))];
+  const getUniqueCategories = (data) => [
+    "All",
+    ...new Set(data.map((item) => item.category)),
+  ];
+
+  const filteredData =
+    selectedCategory === "All"
+      ? storedata
+      : storedata.filter((item) => item.category === selectedCategory);
+
+
 
 
 
@@ -39,26 +51,35 @@ const Products = () => {
       <div className="border mt-30 border-[#b5b5b5] rounded-3xl w-full p-4 overflow-hidden">
         <div className="w-full flex gap-4 justify-end p-2">
         {getUniqueCategories(storedata).map((category, index) => (
-          <span key={index} className="text-sm cursor-pointer  px-2 py-1 bg-gray-200 rounded-full">
-            {category.charAt(0).toUpperCase()  + category.slice(1).toLowerCase()}
-          </span>
-        ))}
+            <span
+              key={index}
+              className={`text-sm cursor-pointer px-3 py-1 rounded-full transition-all ${
+                selectedCategory === category
+                  ? "bg-black text-white"
+                  : "bg-gray-200 text-black"
+              }`}
+              onClick={() => setSelectedCategory(category)}
+            >
+              {category.charAt(0).toUpperCase() +
+                category.slice(1).toLowerCase()}
+            </span>
+          ))}
           {/* <button className="px-3 py-2 bg-black text-white cursor-pointer text-xs w-fit rounded-full">
            Filter 
           </button> */}
         </div>
 
         {/* Responsive grid layout */}
-        <div className="productsContainer cursor-pointer gap-5 mt-5 justify-center flex flex-wrap">
+        <div className="productsContainer  gap-5 mt-5 justify-center flex flex-wrap">
           {/* card */}
-          {storedata.length > 0
-            ?  storedata.map((elem, id) => {
+          {filteredData.length > 0
+            ?  filteredData.map((elem, id) => {
                 const { image, title, price ,discount } = elem;
 
                 return (
                   <div
                     key={id}
-                    className="bg-[#ffffff] p-4 border w-58 border-[#ffffffc9] rounded-xl shadow hover:shadow-lg transition shadow-black/70 flex flex-col justify-between "
+                    className="bg-[#ffffff] cursor-pointer p-4 border w-58 border-[#ffffffc9] rounded-xl shadow hover:shadow-lg transition shadow-black/70 flex flex-col justify-between "
                   >
                     <div className="topContent">
                       <img
