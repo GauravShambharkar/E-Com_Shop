@@ -8,6 +8,7 @@ import ProductPreview from "./PodPreview";
 
 const Products = () => {
   const [storedata, setstoreData] = useContext(Context);
+
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("All");
 
@@ -44,7 +45,7 @@ const Products = () => {
 
   return (
     <>
-      <div className="border mt-30 border-[#b5b5b5] rounded-3xl w-full p-4 overflow-hidden">
+      <div className="border  mt-30 border-[#b5b5b5] rounded-3xl w-full p-4 overflow-hidden">
       <div className="w-full border-b px-2 py-4 overflow-x-auto">
       <div className="flex gap-2   justify-start md:justify-end w-max">
         {getUniqueCategories(storedata).map((category, index) => (

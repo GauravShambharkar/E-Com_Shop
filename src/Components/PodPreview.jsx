@@ -1,13 +1,24 @@
+import { useContext } from 'react';
 import Shop from './Shop';
+import { CartContext } from './Context/CartContext';
+import { useNavigate } from 'react-router-dom';
 
 
 const ProductPreview = ({ selectedProduct, onClose}) => {
 
+  const [cartData, setCartData] = useContext(CartContext)
 
 
   if (!selectedProduct) return null
-
+  const navigate = useNavigate();
   const { image, title, description, price ,brand, color, discount} = selectedProduct;
+
+  const handleAddToCart = ()=>{
+    setCartData([...cartData, selectedProduct])
+    onClose()
+    navigate('/cart');
+  }
+
 
   return (
     <div onClick={onClose} className='fixed  inset-0 flex  justify-center items-center bg-[#474747ac] bg-opacity-50 z-50'>
@@ -25,7 +36,8 @@ const ProductPreview = ({ selectedProduct, onClose}) => {
           <span className='font-mono text-[#5b5b5b] text-lg'>{brand}</span>
           <span className='font-mono text-[#5b5b5b] text-lg'>{discount}%off</span>
           <span className='font-mono text-[#5b5b5b] text-lg'>{color}</span>
-          <button  className='px-4 py-2 bg-black text-white rounded-full text-sm hover:bg-[#2f2f2f] cursor-pointer '>Add to Cart</button>
+          
+          <button onClick={()=>handleAddToCart()} className='px-4 py-2 bg-black text-white rounded-full text-sm hover:bg-[#2f2f2f] cursor-pointer '>Add to Cart</button>
       </div>
         </div>
       </div>
