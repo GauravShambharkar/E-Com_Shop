@@ -2,6 +2,8 @@ import { useContext } from 'react';
 import Shop from './Shop';
 import { CartContext } from './Context/CartContext';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 
 
 const ProductPreview = ({ selectedProduct, onClose}) => {
@@ -17,6 +19,10 @@ const ProductPreview = ({ selectedProduct, onClose}) => {
     setCartData([...cartData, selectedProduct])
     onClose()
     navigate('/cart');
+  }
+  
+  const notifyMsg = ()=>{
+    toast('Added to the cart')
   }
 
 
@@ -37,7 +43,7 @@ const ProductPreview = ({ selectedProduct, onClose}) => {
           <span className='font-mono text-[#5b5b5b] text-lg'>{discount}%off</span>
           <span className='font-mono text-[#5b5b5b] text-lg'>{color}</span>
           
-          <button onClick={()=>handleAddToCart()} className='px-4 py-2 bg-black text-white rounded-full text-sm hover:bg-[#2f2f2f] cursor-pointer '>Add to Cart</button>
+          <button onClick={()=>{handleAddToCart(), notifyMsg()}} className='px-4 py-2 bg-black text-white rounded-full text-sm hover:bg-[#2f2f2f] cursor-pointer '>Add to Cart</button>
       </div>
         </div>
       </div>
