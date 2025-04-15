@@ -42,10 +42,6 @@ const Products = () => {
       : storedata.filter((item) => item.category === selectedCategory);
 
 
-
-
-
-
   return (
     <>
       <div className="border mt-30 border-[#b5b5b5] rounded-3xl w-full p-4 overflow-hidden">
@@ -106,7 +102,7 @@ const Products = () => {
                           onClick={() => {
                             setSelectedProduct(elem);
                           }}
-                          className="px-3 text-sm py-1 bg-[#000000] text-white rounded-full cursor-pointer text-center hover:bg-[#d0d0d0] hover:text-[#000000] transition-colors ease-in-out duration-300">
+                          className="px-3 text-sm py-1 bg-[#000000] text-white rounded-full cursor-pointer text-center hover:bg-[#d0d0d0] hover:text-[#000000] transition-colors ease-in-out hover:ring-1 duration-300">
                             
                           Buy
                         </span>

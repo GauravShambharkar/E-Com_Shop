@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "./Context/Context";
+// import Products from "./Products";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [data] = useContext(Context);
@@ -16,9 +18,11 @@ const Home = () => {
             Shop exclusive items from our carefully curated collection of niche
             goods.
           </p>
-          <button className="bg-black text-white px-6 py-3 rounded-2xl hover:bg-gray-800 transition duration-300">
+          <Link to='/products'  >
+          <button  className="bg-black text-white px-6 py-3 rounded-2xl hover:bg-gray-800 transition duration-300">
             Shop Now
           </button>
+          </Link>
         </div>
       </section>
 
