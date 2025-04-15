@@ -17,7 +17,7 @@ const Nav = () => {
             className={({ isActive }) => {
               return isActive
                 ? "bg-black text-white px-3 py-2 rounded-full duration-400"
-                : " text-black px-3 py-2 hover:ring-1 transition-all ease-in-out duration-300 rounded-full";
+                : " text-black px-3 py-2 ";
             }}
           >
             Home
@@ -27,7 +27,7 @@ const Nav = () => {
             className={({ isActive }) => {
               return isActive
                 ? "bg-black text-white px-3 py-2 rounded-full duration-400"
-                : " text-black  px-3 py-2 hover:ring-1 transition-all ease-in-out duration-300 rounded-full ";
+                : " text-black px-3 py-2";
             }}
           >
             Products
@@ -37,7 +37,7 @@ const Nav = () => {
             className={({ isActive }) => {
               return isActive
                 ? "bg-black text-white px-3 py-2 rounded-full duration-400 "
-                : " text-black  px-3 py-2 hover:ring-1 transition-all ease-in-out duration-300 rounded-full";
+                : " text-black  px-3 py-2";
             }}
           >
             Cart
@@ -47,7 +47,7 @@ const Nav = () => {
             className={({ isActive }) => {
               return isActive
                 ? "bg-black text-white px-3 py-2 rounded-full duration-400 "
-                : " text-black  px-3 py-2 hover:ring-1 transition-all ease-in-out duration-300 rounded-full";
+                : " text-black  px-3 py-2";
             }}
           >
             Login

@@ -64,23 +64,19 @@ const Products = () => {
     </div>
 
         {/* Responsive grid layout */}
-        <div className="productsContainer  gap-5 mt-5  flex flex-wrap justify-center justify-start ">
+        <div className="productsContainer  gap-5 mt-5  flex flex-wrap justify-center sm:justify-start ">
           {/* card */}
           {filteredData.length > 0
             ?  filteredData.map((elem, id) => {
                 const { image, title, price ,discount } = elem;
 
-                return (
+          return (
                   <div
                     key={id}
-                    className="bg-[#ffffff] cursor-pointer p-4 border w-58 border-[#ffffffc9] rounded-xl shadow hover:shadow-lg transition shadow-black/70 flex flex-col justify-between "
+                    className="bg-[#ffffff] cursor-pointer p-4 border w-58 border-[#ffffffc9] rounded-xl shadow hover:shadow-md transition shadow-black/70 flex flex-col justify-between "
                   >
                     <div className="topContent">
-                      <img
-                        src={image}
-                        alt={title}
-                        className="w-50 mx-auto h-35 object-contain rounded-md mb-4"
-                      />
+                      <img src={image} alt={title} className="w-50 mx-auto h-35 object-contain rounded-md mb-4"/>
                       {title.length>20? (<h3 className="text-md font-bold text-gray-700 ">
                         {title.slice(0, 60)}...
                       </h3>) : title}
