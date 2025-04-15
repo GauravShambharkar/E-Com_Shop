@@ -45,28 +45,26 @@ const Products = () => {
   return (
     <>
       <div className="border mt-30 border-[#b5b5b5] rounded-3xl w-full p-4 overflow-hidden">
-        <div className="w-full flex gap-4 justify-end p-2">
+      <div className="w-full border-b px-2 py-4 overflow-x-auto">
+      <div className="flex gap-2   justify-start md:justify-end w-max">
         {getUniqueCategories(storedata).map((category, index) => (
-            <span
-              key={index}
-              className={`text-sm cursor-pointer px-3 py-1 rounded-full transition-all ${
-                selectedCategory === category
-                  ? "bg-black text-white"
-                  : "bg-gray-200 text-black"
-              }`}
-              onClick={() => setSelectedCategory(category)}
-            >
-              {category.charAt(0).toUpperCase() +
-                category.slice(1).toLowerCase()}
-            </span>
-          ))}
-          {/* <button className="px-3 py-2 bg-black text-white cursor-pointer text-xs w-fit rounded-full">
-           Filter 
-          </button> */}
-        </div>
+          <span
+            key={index}
+            className={`text-sm  whitespace-nowrap cursor-pointer px-3 py-1 rounded-full transition-all ${
+              selectedCategory === category
+                ? "bg-black text-white"
+                : "bg-gray-200 text-black"
+            }`}
+            onClick={() => setSelectedCategory(category)}
+          >
+            {category.charAt(0).toUpperCase() + category.slice(1).toLowerCase()}
+          </span>
+        ))}
+      </div>
+    </div>
 
         {/* Responsive grid layout */}
-        <div className="productsContainer  gap-5 mt-5 justify-center flex flex-wrap">
+        <div className="productsContainer  gap-5 mt-5  flex flex-wrap justify-center justify-start ">
           {/* card */}
           {filteredData.length > 0
             ?  filteredData.map((elem, id) => {
