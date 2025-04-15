@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Context } from "./Context/Context";
 // import Products from "./Products";
+
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -53,6 +54,7 @@ const Home = () => {
   const issubscribe = ()=>{
     setChange(!change)
   }
+
 
   return (
     <>
@@ -213,8 +215,9 @@ const Home = () => {
         placeholder="Your email"
         className="w-full px-3 py-2 rounded text-black mb-2"
       />
-      <button onClick={()=>issubscribe()} className="w-full bg-white text-black px-3 py-2 rounded hover:bg-gray-300">
+      <button onClick={()=>{issubscribe()}} className="w-full bg-white text-black px-3 py-2 rounded hover:bg-gray-300">
         {change == true? "Unsubscribe" : "Subscribe"} 
+        
       </button>
     </div>
   </div>

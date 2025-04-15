@@ -2,7 +2,7 @@ import React from "react";
 
 const Login = () => {
   return (
-    <section className=" mt-20 flex items-center rounded-3xl justify-center bg-[#f1f1f1] px-4 py-16">
+    <section className=" mt-30 flex items-center rounded-3xl justify-center bg-[#f1f1f1] px-4 py-16">
       <div className="max-w-md w-full bg-white p-8 rounded-3xl shadow-lg">
         <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">
           Login Account
