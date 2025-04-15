@@ -3,7 +3,10 @@ import { CartContext } from "./Context/CartContext";
 
 const Shop = () => {
 
-  const [cartData] = useContext(CartContext)
+  const [cartData,setCartData] = useContext(CartContext)
+
+
+  
 
   return (
     <div className="conatienr border p-4 mt-30 rounded-3xl ">
@@ -24,7 +27,10 @@ const Shop = () => {
               <p className="text-sm  text-gray-600">{item.description}</p>
               <div className="flex  gap-2 items-center mt-3">
                 <span className="text-gray-800 font-bold">${item.price}</span>
-                <span className="text-sm text-[#ffffff] bg-black border rounded-3xl px-3 py-1">Remove</span>
+                <span onClick={()=>{
+                    const newCart = cartData.filter((_, i) => i !== idx);
+                    setCartData(newCart);
+                }} className="text-sm text-[#ffffff] cursor-pointer bg-black border rounded-3xl px-3 py-1">Remove</span>
               </div>
               </div>
             </div>
