@@ -35,10 +35,9 @@ const Products = () => {
   const getUniqueCategories = (data) => [
     "All",
     ...new Set(data.map((item) => item.category)),
-  ];
+  ]; 
 
-  const filteredData =
-    selectedCategory === "All"
+  const filteredData = selectedCategory === "All"
       ? storedata
       : storedata.filter((item) => item.category === selectedCategory);
 
