@@ -82,23 +82,23 @@ const Home = () => {
           <h2 className="text-3xl font-semibold  text-gray-800 mb-8 text-center">
             Featured Products
           </h2>
-          <div className="grid gap-8 md:grid-cols-3 sm:grid-cols-2">
+          <div className="grid gap-8 border md:grid-cols-3 sm:grid-cols-2 max-sm:justify-center">
             { demoData.map((item, id) => (
               <div
                 key={id}
-                className="bg-[#ffffff] p-4 rounded-xl shadow shadow-black hover:shadow-lg "
+                className="bg-[#ffffff] p-4 rounded-xl shadow shadow-black hover:shadow-lg max-sm:w-80"
               >
-                <Link to='/products'>
+                <Link to='/products' className="flex justify-center">
                 <img
                   src={item.image}
-                  className="w-full h-48 cursor-pointer object-contain rounded-md mb-4"
+                  className="w-full cursor-pointer object-contain rounded-md mb-4 max-sm:w-30 "
                   />
                 </Link>
                 {item.title.length>20? (<h3 className="text-xl font-medium  text-gray-700">
                   {item.title.slice(0, 50)}...
                 </h3>) : item.title}
                 {item.description.length>20? (<p className="text-gray-500 mb-2">
-                  {item.description.slice(0,159)}...
+                  {item.description.slice(0,129)}...
                 </p>) : item.description}
                 <div className="flex items-center justify-between">
                   <span className="text-lg font-semibold text-gray-900">

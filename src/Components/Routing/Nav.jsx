@@ -12,7 +12,7 @@ const Nav = () => {
     <>
       <div className=" fixed top-0  left-0 bg-[#ffffff25] backdrop-blur-xl border-[#b5b5b5] mx-auto rounded-full mt-5 w-full h-20 text-xs px-10 py-5 flex items-center justify-between">
         <div className=" px-3 py-2 rounded-full text-[#000000] bg-[#ff7429]">
-          E-COM-SHOP
+          E-COM-X
         </div>
 
       <span onClick={()=>toggleMenu()}>
