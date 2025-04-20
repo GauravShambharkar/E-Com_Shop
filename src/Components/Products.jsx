@@ -17,12 +17,9 @@ const Products = () => {
     axios.get("https://fakestoreapi.in/api/products").then((res) => {
       console.log(res.data);
 
-      setstoreData([...storedata, ...res.data.products]);
-    }).catch(()=>{
-      alert('couldnt fetch data')
-    })
-    
-    ;}
+    setstoreData([...storedata, ...res.data.products]);}).catch(()=>{
+      alert('Internet Connection Lost')
+    });}
 
   useEffect(() => {
     console.log(" Product page mountedd ");
@@ -44,13 +41,13 @@ const Products = () => {
 
   return (
     <>
-      <div className="border  mt-30 border-[#b5b5b5] rounded-3xl w-full p-4 overflow-hidden">
+      <div className="border mt-30 border-[#b5b5b5]  rounded-3xl w-full p-4 overflow-hidden">
       <div className="w-full border-b px-2 py-4 overflow-x-auto">
-      <div className="flex gap-2   justify-start md:justify-end w-max">
+      <div className="flex gap-2 justify-start md:justify-end w-max">
         {getUniqueCategories(storedata).map((category, index) => (
           <span
             key={index}
-            className={`text-sm  whitespace-nowrap cursor-pointer px-3 py-1 rounded-full transition-all ${
+            className={`text-sm whitespace-nowrap cursor-pointer px-3 py-1 rounded-full transition-all ${
               selectedCategory === category
                 ? "bg-black text-white"
                 : "bg-gray-200 text-black"
@@ -64,7 +61,7 @@ const Products = () => {
     </div>
 
         {/* Responsive grid layout */}
-        <div className="productsContainer  gap-5 mt-5  flex flex-wrap justify-center sm:justify-start ">
+        <div className="productsContainer border gap-5 mt-5  flex flex-wrap max-md:justify-center  ">
           {/* card */}
           {filteredData.length > 0
             ?  filteredData.map((elem, id) => {

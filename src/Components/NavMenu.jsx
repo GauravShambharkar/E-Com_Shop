@@ -1,29 +1,15 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import NavMenu from "../NavMenu";
+import React from 'react'
+import { NavLink } from 'react-router-dom';
 
-const Nav = () => {
-  const [isMenu, setIsmenu] = useState(false)
-  function toggleMenu() {
-    setIsmenu(!isMenu)
-  }
-
+const NavMenu = ({setIsMenu}) => {
   return (
     <>
-      <div className=" fixed top-0  left-0 bg-[#ffffff25] backdrop-blur-xl border-[#b5b5b5] mx-auto rounded-full mt-5 w-full h-20 text-xs px-10 py-5 flex items-center justify-between">
-        <div className=" px-3 py-2 rounded-full text-[#000000] bg-[#ff7429]">
-          E-COM-SHOP
-        </div>
-
-      <span onClick={()=>toggleMenu()}>
-        {isMenu== true? <i className="ri-close-large-line p-2 text-lg max-sm:block sm:hidden"></i>: <i className="ri-menu-line p-2 text-lg max-sm:block sm:hidden"></i> }
-      </span>
-        <div className="flex items-center  gap-5 transition-all ease-in max-sm:hidden">
-          {/* <Link to="/">Home</Link> */}
-          {/* <Link to="/products">Products</Link> */}
-          {/* <Link to="/shop">Shop</Link> */}
-          <NavLink
+        
+    <div className="w-full fixed  top-0 right-0 mt-25 p-2 rounded-2xl bg-[#ffffff16] backdrop-blur-md">
+   <div className="flex flex-col border items-end w-full p-2 rounded-2xl">
+    <NavLink
             to="/"
+            onClick={()=>setIsMenu('')}
             className={({ isActive }) => {
               return isActive
                 ? "bg-black text-white px-3 py-2 rounded-full duration-400"
@@ -34,6 +20,7 @@ const Nav = () => {
           </NavLink>
           <NavLink
             to="/products"
+            onClick={()=>setIsMenu('')}
             className={({ isActive }) => {
               return isActive
                 ? "bg-black text-white px-3 py-2 rounded-full duration-400"
@@ -44,6 +31,7 @@ const Nav = () => {
           </NavLink>
           <NavLink
             to="/cart"
+            onClick={()=>setIsMenu('')}
             className={({ isActive }) => {
               return isActive
                 ? "bg-black text-white px-3 py-2 rounded-full duration-400 "
@@ -54,6 +42,7 @@ const Nav = () => {
           </NavLink>
           <NavLink
             to="/loginPage"
+            onClick={()=>setIsMenu('')}
             className={({ isActive }) => {
               return isActive
                 ? "bg-black text-white px-3 py-2 rounded-full duration-400 "
@@ -62,12 +51,11 @@ const Nav = () => {
           >
             Login
           </NavLink>
-        </div>
-      </div>
-      {isMenu === true? <NavMenu setIsMenu={setIsmenu}/> : null }
-
+    
+    </div>
+    </div>
     </>
-  );
-};
+  )
+}
 
-export default Nav;
+export default NavMenu
