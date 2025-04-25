@@ -31,7 +31,7 @@ const ProductPreview = ({ selectedProduct, onClose }) => {
         {/* Modal Container */}
         <div
           onClick={(e) => e.stopPropagation()}
-          className="w-full max-w-7xl bg-white max-md:w-100 rounded-lg shadow-lg relative p-4 flex flex-col max-md: md:flex-row items-center gap-6"
+          className="w-full max-w-7xl bg-white max-md:w-100  rounded-lg shadow-lg relative p-4 flex flex-col max-md: md:flex-row items-center gap-6"
         >
           {/* Close Button */}
           <button
@@ -45,14 +45,14 @@ const ProductPreview = ({ selectedProduct, onClose }) => {
           <img
             src={image}
             alt={title}
-            className="w-full sm:w-[60%] text-left md:w-[40%] lg:w-[30%] max-w-xs h-auto object-contain rounded-2xl border border-[#e2e2e2] "
+            className="w-full sm:w-[60%] text-left md:w-[40%] lg:w-[30%] max-w-xs h-auto object-contain rounded-2xl border border-[#e2e2e2] max-sm:w-40 "
           />
 
           {/* Text Content */}
           <div className="w-full flex flex-col  justify-between text-left md:text-left">
             <div>
               <h2 className="text-xl font-bold">{title}</h2>
-              <p className="text-sm text-gray-600 mt-2">{description}</p>
+              <p className="text-sm text-gray-600 mt-2">{description.slice(0,250)}</p>
             </div>
 
             {/* Pricing & CTA */}
