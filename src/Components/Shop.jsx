@@ -17,17 +17,17 @@ const Shop = () => {
       ) : (
         <div className="grid gap-6 w-fit">
           {cartData.map((item, idx) => (
-            <div key={idx} className="border gap-2 flex p-4 rounded-xl shadow">
+            <div key={idx} className="border gap-2 flex max-sm:flex-col p-4 rounded-xl shadow">
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-fit  h-40 object-contain mb-3"
+                className="w-fit mx-auto  h-40 object-contain mb-3"
               />
 
               <div className="flex flex-col gap-4">
                 <h3 className="font-semibold text-lg">{item.title}</h3>
                 <p className="text-sm  text-gray-600">{item.description}</p>
-                <div className="flex  gap-2 items-center mt-3">
+                <div className="flex  gap-2 items-center justify-between mt-3">
                   <span className="text-gray-800 font-bold">${item.price}</span>
                   <span
                     onClick={() => {
